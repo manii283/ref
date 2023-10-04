@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, {useRef} from 'react';
 import './App.css';
 
 function App() {
+  let inputRef = useRef(null)
+
+  const handelInput = () => {
+    console.log("function call")
+    inputRef.current.value = '100'
+    // inputRef.current.focus();
+    // inputRef.current.style.color="red"
+    inputRef.current.style.display="none"
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>useRef</h1>
+      <input type='text' ref={inputRef} />
+      <button onClick={handelInput}>Handle Input </button>
     </div>
   );
 }
